@@ -25,6 +25,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		String password = request.getParameter("password");
 		
 		UserVo userVo = userService.getUser(email, password);
+		System.out.println(userVo);
 		if(userVo == null) {
 			response.sendRedirect(request.getContextPath() + "/user/login");
 			return false;

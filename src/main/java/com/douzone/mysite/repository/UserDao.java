@@ -125,6 +125,8 @@ public class UserDao {
 	}
 	
 	public UserVo get(String email, String password) {
+		
+		
 		UserVo result = null;
 		
 		Connection conn = null;
@@ -139,6 +141,7 @@ public class UserDao {
 				"   from user" + 
 				"  where email=?" +
 				"    and password=?";
+			
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, email);

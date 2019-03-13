@@ -28,7 +28,7 @@ public class MainController {
 	public String main(Model model) {
 		model.addAttribute("siteVo", siteService.get());
 		// return "/WEB-INF/views/main/index.jsp";
-		
+		System.out.println("된다.");
 		return "/main/index";
 	}
 	

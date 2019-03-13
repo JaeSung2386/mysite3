@@ -13,6 +13,18 @@
 <title>mysite</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="${pageContext.servletContext.contextPath }/assets/css/board.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+$( function() {
+	$("#menu").click(function(){
+        alert("이름 클릭");
+	});
+    //$( "#menu" ).menu();
+  } );
+</script>
 </head>
 <body>
 	<div id="container">
@@ -59,7 +71,9 @@
 								<td style="text-align: left; padding:0px 0px 0px ${vo.depth * 20}px;"><img src ="${pageContext.servletContext.contextPath }/assets/images/reply.png" width=15 height=15 /><a href="${pageContext.servletContext.contextPath }/board/view/${vo.no}/${authuser.no}">[답글]${vo.title }</a></td>
 							</c:when>
 						</c:choose>
-						<td><a href="${pageContext.servletContext.contextPath }/board/view/${vo.no}/${authuser.no}">${vo.name }</a></td>
+						<td id="menu">
+							${vo.name }
+						</td>
 						<td>${vo.hit }</td>
 						<td>${vo.write_date }</td>
 						<td>
@@ -73,6 +87,7 @@
 					</tr>
 					</c:forEach>
 				</table>
+			
 				<!-- pager 추가 -->
 				<div class="pager">
 					<ul>

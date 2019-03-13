@@ -163,7 +163,6 @@ $(function(){
 		// submit의 기본동작(post)
 		// 막아야 한다.
 		event.preventDefault();
-		var guestbookVo = {};
 		
 		var vo = {};
 		// validate form data

@@ -33,7 +33,7 @@ public class UserController {
 			@ModelAttribute @Valid UserVo userVo,
 			BindingResult result,
 			Model model) {
-		
+		System.out.println(result.hasErrors());
 		// result의 결과를 check
 		if(result.hasErrors()) {
 			// 유효성이 하나라도 잘못되었을 경우
@@ -57,40 +57,10 @@ public class UserController {
 	// 로그인
 	@RequestMapping("/login")
 	public String login() {
+		System.out.println("로그인 컨트롤러");
 		return "/user/login";
 	}
 	
-	/*
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(
-			HttpSession session,
-			@ModelAttribute UserVo userVo) {
-		
-		
-		UserVo authUser = new UserDao().get(userVo.getEmail(), userVo.getPassword());
-		
-		if(authUser == null) {
-			session.setAttribute("result", "fail");
-			return "/user/login";
-		}
-		
-		session.setAttribute("authuser", authUser);
-		return "redirect:/";
-	}
-	
-	// 로그 아웃
-	
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-		if( session != null && 
-		    session.getAttribute("authuser") != null) {
-			// logout  처리
-			session.removeAttribute("authuser");
-			session.invalidate();
-		}
-		return "redirect:/";
-	}
-	*/
 	// 회원 수정
 	@Auth
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
