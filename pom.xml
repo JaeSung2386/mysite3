@@ -145,7 +145,14 @@
 					<resource>
 						<directory>${project.basedir}/src/main/resources</directory>
 						<excludes>
-							<!-- java 파일을 제외하고 클래스에 가져다 놓는다. -->
+							<!-- java 파일을 제외하고 classes에 가져다 놓는다. -->
+							<exclude>**/*.java</exclude>
+						</excludes>
+					</resource>
+					<resource>
+						<directory>${project.basedir}/src/production/resources</directory>
+						<excludes>
+							<!-- java 파일을 제외하고 classes에 가져다 놓는다. -->
 							<exclude>**/*.java</exclude>
 						</excludes>
 					</resource>
